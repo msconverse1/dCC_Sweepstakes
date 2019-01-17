@@ -47,7 +47,10 @@ namespace msc_Sweepstakes
         }
         void PrintContestantInfo(Contestant contestant)
         {
-
+            if (contestant.ConcatName == PickWinner())
+            {
+                Console.WriteLine("Winning Contestant is {0}. There email: {1}.", contestant.ConcatName, contestant.Email);
+            }
         }
     }
 }
