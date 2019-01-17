@@ -10,6 +10,10 @@ namespace msc_Sweepstakes
     {
         static void Main(string[] args)
         {
+            
+            Sweepstakes sweepstakes = new Sweepstakes("Test");
+           
+            sweepstakes.CreateContestant();
         }
     }
 }

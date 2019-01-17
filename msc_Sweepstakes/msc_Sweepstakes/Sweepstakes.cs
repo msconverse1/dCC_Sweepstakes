@@ -11,28 +11,20 @@ namespace msc_Sweepstakes
         Dictionary<int, Contestant> dictionary = new Dictionary<int, Contestant>();
         HashSet<int> Registration = new HashSet<int>();
         Random Random = new Random();
-
-        public Sweepstakes()
+        readonly string SweepstakesName;
+        UserInterface UserInterface = new UserInterface();
+       public Sweepstakes(string name)
         {
-
+            SweepstakesName = name;
+        }
+        public void CreateContestant()
+        {
+           RegisterContestant(UserInterface.CreateUser(Registration,dictionary, Random));
         }
 
-        Sweepstakes(string name)
-        {
-
-        }
       public  void RegisterContestant(Contestant contestant)
         {
-            do
-            {
-                int number = Random.Next(dictionary.Count, 999999);
-                if (!Registration.Contains(number))
-                {
-                    Registration.Add(number);
-                }
-            } while (dictionary.Count > Registration.Count);
-            UserInterface userInterface = new UserInterface();
-            userInterface.CreateUser(contestant,Registration);
+
             dictionary.Add(contestant.Registration, contestant);
         }
         string PickWinner()
@@ -49,6 +41,7 @@ namespace msc_Sweepstakes
         {
             if (contestant.ConcatName == PickWinner())
             {
+                Console.WriteLine("The Winner of {0} ",SweepstakesName);
                 Console.WriteLine("Winning Contestant is {0}. There email: {1}.", contestant.ConcatName, contestant.Email);
             }
         }
