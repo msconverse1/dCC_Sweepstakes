@@ -10,17 +10,10 @@ namespace msc_Sweepstakes
     {
         static void Main(string[] args)
         {
-            
-            Sweepstakes sweepstakes = new Sweepstakes("Test");
-            for (int i = 0; i < 3; i++)
-            {
-                sweepstakes.CreateContestant();
-                Console.WriteLine("Press any ket to continue!");
-                Console.ReadLine();
-                Console.Clear();
-            }
-            sweepstakes.PrintAllContestantsInfo();
-            Console.ReadLine();
+            SweepstakesQueueManager Queue = new SweepstakesQueueManager();
+            MarketingFirm marketingFirm = new MarketingFirm(Queue);
+            marketingFirm.CreateSweepStakes();
+            marketingFirm.AddToManager();
         }
     }
 }

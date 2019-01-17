@@ -24,7 +24,6 @@ namespace msc_Sweepstakes
 
       public  void RegisterContestant(Contestant contestant)
         {
-
             dictionary.Add(contestant.Registration, contestant);
         }
         string PickWinner()
