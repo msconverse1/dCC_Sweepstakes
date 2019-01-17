@@ -6,27 +6,36 @@ using System.Threading.Tasks;
 
 namespace msc_Sweepstakes
 {
-    class UserInterface
+  static  class UserInterface
     {
         
-        public Contestant CreateUser(HashSet<int> Registration, Dictionary<int, Contestant> dictionary,Random random)
+       static public Contestant CreateUser( Dictionary<int, Contestant> dictionary,Random random)
         {
             Contestant sweepstakesContestant;
+            int number;
+            int maxvalue = 4;
             do
             {
-                int number = random.Next(dictionary.Count, 999999);
-                Registration.Add(number);
-            } while (dictionary.Count > Registration.Count);
-          int ran = random.Next(Registration.Min(), Registration.Max());
+                if (dictionary.Count == maxvalue)
+                {
+                    maxvalue *= maxvalue;
+                }
+                if (dictionary.Keys.Count == 0)
+                {
+                   
+                    number = random.Next(maxvalue); 
+                }
+                else
+                number = random.Next(dictionary.Keys.Min(), maxvalue);
+            } while (dictionary.Keys.Contains(number));
             Console.WriteLine("Enter First Name:");
            string firstName= Console.ReadLine();
             Console.WriteLine("Enter Last Name:");
             string lastName = Console.ReadLine();
             Console.WriteLine("Enter Email Address:");
             string email = Console.ReadLine();
-            Console.WriteLine("Your Registration Number: {0}",ran);
-            
-          return sweepstakesContestant = new Contestant(firstName,lastName,email,ran);
+            Console.WriteLine("Your Registration Number: {0}", number);
+          return sweepstakesContestant = new Contestant(firstName,lastName,email, number);
         }
     }
 }

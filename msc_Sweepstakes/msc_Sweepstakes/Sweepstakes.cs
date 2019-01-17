@@ -9,17 +9,17 @@ namespace msc_Sweepstakes
     class Sweepstakes
     {
         Dictionary<int, Contestant> dictionary = new Dictionary<int, Contestant>();
-        readonly HashSet<int> Registration = new HashSet<int>();
+        
         Random Random = new Random();
         readonly string SweepstakesName;
-        UserInterface UserInterface = new UserInterface();
+        
        public Sweepstakes(string name)
         {
             SweepstakesName = name;
         }
         public void CreateContestant()
         {
-           RegisterContestant(UserInterface.CreateUser(Registration,dictionary, Random));
+           RegisterContestant(UserInterface.CreateUser(dictionary, Random));
         }
 
       public  void RegisterContestant(Contestant contestant)
@@ -29,7 +29,7 @@ namespace msc_Sweepstakes
         }
         string PickWinner()
         {
-            string temp = "placeholder";
+            string temp = "No Winner";
            int winningKey= Random.Next(dictionary.Keys.Min(), dictionary.Keys.Max());
             if (dictionary.Keys.Contains(winningKey))
             {
