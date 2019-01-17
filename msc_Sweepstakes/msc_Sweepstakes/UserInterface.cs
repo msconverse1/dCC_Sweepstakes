@@ -8,18 +8,21 @@ namespace msc_Sweepstakes
 {
     class UserInterface
     {
-        Contestant sweepstakesContestant;
-        void CreateUser()
+       
+        
+       public void CreateUser(Contestant sweepstakesContestant,HashSet<int> Registration)
         {
+            Random random = new Random();
+          int ran = random.Next(Registration.Min(), Registration.Max());
             Console.WriteLine("Enter First Name:");
            string firstName= Console.ReadLine();
             Console.WriteLine("Enter Last Name:");
             string lastName = Console.ReadLine();
             Console.WriteLine("Enter Email Address:");
             string email = Console.ReadLine();
-            Console.WriteLine("Enter Your Registration Number:");
-            int.TryParse(Console.ReadLine(), out int registration);
-            sweepstakesContestant = new Contestant(firstName,lastName,email,registration);
+            Console.WriteLine("Your Registration Number: {0}",ran);
+            
+            sweepstakesContestant = new Contestant(firstName,lastName,email,ran);
         }
     }
 }

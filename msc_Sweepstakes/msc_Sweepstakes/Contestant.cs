@@ -12,11 +12,15 @@ namespace msc_Sweepstakes
         string lastName;
         string email;
         int registration;
+        
+        public int Registration { get=> registration; }
+        public string ConcatName { get=> firstName+lastName; }
         public Contestant(string firstName,string lastName,string email,int registration)
         {
-            this.firstName = firstName;
+            this.firstName = firstName + " ";
             this.lastName = lastName;
             this.email = email;
+           
             this.registration = registration;
         }
     }
