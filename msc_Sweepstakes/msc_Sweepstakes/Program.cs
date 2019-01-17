@@ -12,8 +12,15 @@ namespace msc_Sweepstakes
         {
             
             Sweepstakes sweepstakes = new Sweepstakes("Test");
-           
-            sweepstakes.CreateContestant();
+            for (int i = 0; i < 3; i++)
+            {
+                sweepstakes.CreateContestant();
+                Console.WriteLine("Press any ket to continue!");
+                Console.ReadLine();
+                Console.Clear();
+            }
+            sweepstakes.PrintAllContestantsInfo();
+            Console.ReadLine();
         }
     }
 }

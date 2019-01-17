@@ -9,7 +9,7 @@ namespace msc_Sweepstakes
     class Sweepstakes
     {
         Dictionary<int, Contestant> dictionary = new Dictionary<int, Contestant>();
-        HashSet<int> Registration = new HashSet<int>();
+        readonly HashSet<int> Registration = new HashSet<int>();
         Random Random = new Random();
         readonly string SweepstakesName;
         UserInterface UserInterface = new UserInterface();
@@ -43,6 +43,18 @@ namespace msc_Sweepstakes
             {
                 Console.WriteLine("The Winner of {0} ",SweepstakesName);
                 Console.WriteLine("Winning Contestant is {0}. There email: {1}.", contestant.ConcatName, contestant.Email);
+            }
+        }
+       public void PrintAllContestantsInfo()
+        {
+            int i =0;
+            foreach (var item in dictionary)
+            {
+                
+                Console.WriteLine("Name of Contestants {1} : {0}", item.Value.ConcatName,i);
+                Console.WriteLine("Email of Contestants {1} : {0}", item.Value.Email,i);
+                Console.WriteLine("Registration of Contestants {1} : {0}", item.Value.Registration,i);
+                i++;
             }
         }
     }

@@ -8,10 +8,10 @@ namespace msc_Sweepstakes
 {
     class Contestant
     {
-        string firstName;
-        string lastName;
-        string email;
-        int registration;
+        readonly string firstName;
+        readonly string lastName;
+        readonly string email;
+        readonly int registration;
         
         public int Registration { get=> registration; }
         public string ConcatName { get=> firstName+lastName; }
