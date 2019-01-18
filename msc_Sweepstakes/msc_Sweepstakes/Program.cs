@@ -15,7 +15,10 @@ namespace msc_Sweepstakes
             MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
             marketingFirm.CreateSweepStakes();
             marketingFirm.AddToManager();
-            marketingFirm.ChooseWinner();
+            marketingFirm.PrintAllContestants();
+            marketingFirm.SendNoticeToContesants();
+            Console.WriteLine("Sending results to Emails!");
+            Console.ReadLine();
         }
     }
 }

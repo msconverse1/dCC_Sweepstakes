@@ -10,7 +10,7 @@ namespace msc_Sweepstakes
     {
         ISweepstakesManager sweepstakesManager;
         Sweepstakes sweepstakes;
-       
+        string _name;
         public MarketingFirm(ISweepstakesManager sweepstakesManager)
         {
            this.sweepstakesManager = sweepstakesManager; 
@@ -18,7 +18,7 @@ namespace msc_Sweepstakes
         public void CreateSweepStakes()
         {
             Console.WriteLine("What is the name of your Sweepstake?");
-            string _name = Console.ReadLine();
+             _name = Console.ReadLine();
            sweepstakes = new Sweepstakes(_name);
             Console.WriteLine("How Many Contestants are there in this contest?");
             int.TryParse(Console.ReadLine(),out int number);
@@ -26,7 +26,7 @@ namespace msc_Sweepstakes
             {
                 sweepstakes.CreateContestant();
             }
-            
+           
             //sweepstakes.PrintAllContestantsInfo();
             //Console.ReadLine();
         }
@@ -34,9 +34,18 @@ namespace msc_Sweepstakes
         {
             sweepstakesManager.InsertSweepstakes(sweepstakes);
         }
-        public void ChooseWinner()
+        public void PrintAllContestants()
         {
             sweepstakes.PrintAllContestantsInfo();
+        }
+        public void SendNoticeToContesants()
+        {
+           string winner = sweepstakes.SendNoticeToContesants();
+            foreach (var item in sweepstakes.Dictionary)
+            {
+                //name, email,winner,nameofsweepstakes
+                SendEmail.EmailToSendAsync(item.Value.ConcatName, item.Value.Email, winner, _name);
+            }
         }
     }
 }
