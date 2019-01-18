@@ -10,8 +10,9 @@ namespace msc_Sweepstakes
     {
         static void Main(string[] args)
         {
-            SweepstakesQueueManager Queue = new SweepstakesQueueManager();
-            MarketingFirm marketingFirm = new MarketingFirm(Queue);
+            ISweepstakesManager sweepstakesManager;
+            sweepstakesManager= UserInterface.ChooseManager();
+            MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
             marketingFirm.CreateSweepStakes();
             marketingFirm.AddToManager();
         }

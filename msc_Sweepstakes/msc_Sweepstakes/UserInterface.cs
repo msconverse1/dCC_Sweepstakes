@@ -37,5 +37,26 @@ namespace msc_Sweepstakes
             } while (dictionary.Keys.Contains(number));
             return number;
         }
+
+       static public ISweepstakesManager ChooseManager()
+        {
+            ISweepstakesManager manager;
+            Console.WriteLine("Choose what SweepstakesManager\n 1.)Stack\n 2.)Queue");
+            int.TryParse(Console.ReadLine(), out int input);
+
+            switch (input)
+            {
+                case 1:
+                    manager = new SweepstakesStackManager();
+                    break;
+                case 2:
+                    manager = new SweepstakesQueueManager();
+                    break;
+                default:
+                   manager= ChooseManager();
+                    break;
+            }
+            return manager;
+        }
     }
 }

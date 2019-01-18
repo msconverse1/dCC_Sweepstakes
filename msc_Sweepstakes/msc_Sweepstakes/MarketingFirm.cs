@@ -34,6 +34,9 @@ namespace msc_Sweepstakes
         {
             sweepstakesManager.InsertSweepstakes(sweepstakes);
         }
-
+        public void ChooseWinner()
+        {
+            sweepstakes.PrintAllContestantsInfo();
+        }
     }
 }
