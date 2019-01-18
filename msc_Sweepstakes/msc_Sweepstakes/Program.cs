@@ -15,6 +15,7 @@ namespace msc_Sweepstakes
             MarketingFirm marketingFirm = new MarketingFirm(sweepstakesManager);
             marketingFirm.CreateSweepStakes();
             marketingFirm.AddToManager();
+            marketingFirm.ChooseWinner();
         }
     }
 }
