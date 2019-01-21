@@ -51,7 +51,7 @@ namespace msc_Sweepstakes
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 465, MailKit.Security.SecureSocketOptions.SslOnConnect);
-                client.Authenticate("matthew.converse37@gmail.com", "DeamonRose1");
+                client.Authenticate("matt.conversedcc@gmail.com", "devCodeCamp");
                 client.Send(message);
                 client.Disconnect(true);
             }
