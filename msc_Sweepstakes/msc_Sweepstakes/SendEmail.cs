@@ -14,7 +14,7 @@ namespace msc_Sweepstakes
 {
    static class SendEmail
     {
-        static string filepath = "https://www.googleapis.com/oauth2/v1/certs";
+       // static  string filepath = "https://www.googleapis.com/oauth2/v1/certs";
 
         static public  void EmailToSendAsync(string name, string Email, string winner, string SweepstakesName)
         {
@@ -22,16 +22,31 @@ namespace msc_Sweepstakes
             message.From.Add(new MailboxAddress("Mr.SweepStakes", "{RaveRedRose@live.com}"));
             message.To.Add(new MailboxAddress(name, Email));
             message.Subject = "Reslut of the Sweepstakes";
-            
-            var body = new TextPart("plain")
+            var body= new TextPart("plain");
+            if (name == winner)
             {
-                Text = name+@",Good Day,
+                 body = new TextPart("plain")
+                {
+                    Text = name + @" Good Day,
                            
-                 The Result of our Contest Has Been Decided an we would like to adnounce that "+ winner+ " is the winner of the "+ SweepstakesName +
-                 @"We hope you will join us again when we run our next Sweepstakes
+                 The Result of our Contest Has Been Decided an we would like to announce that You are the Winner of " + SweepstakesName +".\n"+
+                 @" We hope you will join us again when we run our next Sweepstakes
 
                  -- Mr.Sweepstakes"
-            };
+                };
+            }
+            else
+            {
+                 body = new TextPart("plain")
+                {
+                    Text = name + @" Good Day,
+                           
+                        The Result of our Contest Has Been Decided an we would like to announce that " + winner + " is the winner of the " + SweepstakesName +
+                     @" We hope you will join us again when we run our next Sweepstakes
+
+                 -- Mr.Sweepstakes"
+                };
+            }
             message.Body = body;
             using (var client = new SmtpClient())
             {

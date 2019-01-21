@@ -58,5 +58,7 @@ namespace msc_Sweepstakes
             }
             return manager;
         }
+
+     //   static public void SendEmail ()
     }
 }

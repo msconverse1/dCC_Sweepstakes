@@ -26,9 +26,6 @@ namespace msc_Sweepstakes
             {
                 sweepstakes.CreateContestant();
             }
-           
-            //sweepstakes.PrintAllContestantsInfo();
-            //Console.ReadLine();
         }
         public void AddToManager()
         {

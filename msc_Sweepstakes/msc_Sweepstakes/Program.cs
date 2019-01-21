@@ -16,8 +16,9 @@ namespace msc_Sweepstakes
             marketingFirm.CreateSweepStakes();
             marketingFirm.AddToManager();
             marketingFirm.PrintAllContestants();
-            marketingFirm.SendNoticeToContesants();
             Console.WriteLine("Sending results to Emails!");
+            marketingFirm.SendNoticeToContesants();
+            Console.WriteLine("Results sent to Emails!");
             Console.ReadLine();
         }
     }
